@@ -1,0 +1,5 @@
+packages/shadcn
+node_modules
+*.js
+*.cjs
+*.ejs
