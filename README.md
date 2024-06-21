@@ -3,6 +3,7 @@
 ### Apps
 
 - [WEB](./apps/web/)
+- [EXTENSION](./apps/extension/)
 
 ### Utilities
 

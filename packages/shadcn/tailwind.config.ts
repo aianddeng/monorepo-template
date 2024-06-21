@@ -7,6 +7,8 @@ const config: Omit<Config, 'content'> = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './popup/**/*.{ts,tsx}',
+    './contents/**/*.{ts,tsx}',
     '../../packages/shadcn/**/*.{ts,tsx}',
   ],
   prefix: '',
