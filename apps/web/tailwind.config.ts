@@ -1,1 +1,1 @@
-export * from 'shadcn/tailwind.config'
+export * from "shadcn/tailwind.config"

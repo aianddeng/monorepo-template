@@ -6,15 +6,17 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\""
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "turbo": "^2.0.4",
+    "turbo": "^2.0.5",
     "typescript": "^5"
   },
   "packageManager": "pnpm@8.15.6",
@@ -23,10 +25,22 @@
   },
   "prettier": {
     "semi": false,
-    "singleQuote": true,
+    "singleQuote": false,
+    "trailingComma": "es5",
     "plugins": [
       "prettier-plugin-tailwindcss",
-      "prettier-plugin-organize-imports"
+      "@ianvs/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "^(react/(.*)$)|^(react$)",
+      "^(next/(.*)$)|^(next$)",
+      "<THIRD_PARTY_MODULES>",
+      "^@repo/(.*)$",
+      "^shadcn/(.*)$",
+      "",
+      "^@/(.*)$",
+      "",
+      "^[./]"
     ]
   },
   "lint-staged": {
@@ -34,8 +48,13 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "**/*.{md,json}": [
+    "**/*.{md,json,css}": [
       "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }
